@@ -15,13 +15,6 @@ foreach ($lecturers as $lecturer) {
     echo "<br><br>";
 }
 
-echo "<hr>Lecturers from faculty 1<hr>";
-$lecturers = $lecturerDao->findAllWithFaculty(1);
-foreach ($lecturers as $lecturer) {
-    echo print_r($lecturer->toArray());
-    echo "<br><br>";
-}
-
 echo "<hr>Faculties<hr>";
 
 $facultyDao = new FacultyDaoPdo($db);
@@ -49,5 +42,14 @@ $positions = $positionDao->getAll();
 
 foreach ($positions as $position) {
     echo print_r($position->toArray());
+    echo "<br><br>";
+}
+
+
+echo "<hr>Lecturers from faculty 'ФПМ'<hr>";
+$faculty = $facultyDao->findOneWithName("ФПМ");
+$lecturers = $lecturerDao->findAllWithFaculty($faculty->getId());
+foreach ($lecturers as $lecturer) {
+    echo print_r($lecturer->toArray());
     echo "<br><br>";
 }
