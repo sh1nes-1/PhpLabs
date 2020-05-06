@@ -4,12 +4,6 @@ class Faculty {
     private $id;
     private $faculty_name;
 
-    public function getId() {
-        return $this->id;
-    }
-
-    // TODO: implement getters and setters
-
     /**
      * Converts associative array to object
      * 
@@ -30,5 +24,39 @@ class Faculty {
      */
     public function toArray() {
         return get_object_vars($this);
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * Get the value of faculty_name
+     */ 
+    public function getFacultyName() {
+        return $this->faculty_name;
+    }
+
+    /**
+     * Set the value of faculty_name
+     *
+     * @return  self
+     */ 
+    public function setFacultyName($faculty_name) {
+        $this->faculty_name = $faculty_name;
+        return $this;
     }
 }

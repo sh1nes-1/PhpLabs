@@ -45,7 +45,6 @@ foreach ($positions as $position) {
     echo "<br><br>";
 }
 
-
 echo "<hr>Lecturers from faculty 'ФПМ'<hr>";
 $faculty = $facultyDao->findOneWithName("ФПМ");
 $lecturers = $lecturerDao->findAllWithFaculty($faculty->getId());
