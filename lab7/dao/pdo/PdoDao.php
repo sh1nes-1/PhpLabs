@@ -49,7 +49,20 @@ abstract class PdoDao implements Dao {
      * @return int id of created object
      */
     function insert($obj) {
-        return NULL;
+        $formatted_values_string = "";
+        
+        $arrayObj = $this->objectToAssociativeArray($obj);
+        foreach ($arrayObj as $key => $value) {
+            if ($key == 'id') 
+                continue;
+                
+            $formatted_values_string .= "'$value', ";
+        }
+        $formatted_values_string = rtrim($formatted_values_string, ", ");
+
+        $stmt = $this->db->prepare("INSERT INTO `{$this->getTableName()}` VALUES (NULL, $formatted_values_string)");
+        $stmt->execute([$obj->getId()]);
+        return $this->db->lastInsertId();
     }
 
     /**
@@ -64,11 +77,15 @@ abstract class PdoDao implements Dao {
         $formatted_set_string = "";
         
         $arrayObj = $this->objectToAssociativeArray($obj);
-        foreach ($arrayObj as $key) {
-            $formatted_set_string .= " $key = $arrayObj[$key],";
-        }
+        foreach ($arrayObj as $key => $value) {
+            if ($key == 'id') 
+                continue;
 
-        $stmt = $this->db->prepare("UPDATE `{$this->getTableName()}` SET ($formatted_set_string) WHERE `id` = ?");
+            $formatted_set_string .= "`$key`='$value', ";
+        }
+        $formatted_set_string = rtrim($formatted_set_string, ", ");
+
+        $stmt = $this->db->prepare("UPDATE `{$this->getTableName()}` SET $formatted_set_string WHERE `id` = ?");
         $stmt->execute([$obj->getId()]);
         return $stmt->rowCount();
     }

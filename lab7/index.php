@@ -52,3 +52,30 @@ foreach ($lecturers as $lecturer) {
     echo print_r($lecturer->toArray());
     echo "<br><br>";
 }
+
+echo "<hr>Tests<hr>";
+
+$lecturer = $lecturerDao->findOneWithFirstName("Володя");
+if ($lecturer !== FALSE) {
+    $lecturerDao->delete($lecturer->getId());
+    echo "Deleted record with id: {$lecturer->getId()}<br>";
+}
+
+$lecturer = new Lecturer();
+$lecturer->setFirstName("Володя");
+$lecturer->setLastName("Сухолиткий");
+$lecturer->setSurname("Іванович");
+$lecturer->setBirthday("2000-01-01");
+$lecturer->setSalary(5000);
+$lecturer->setPositionId(1);
+$lecturer->setFacultyId(1);
+$lecturer->setDegreeId(1);
+
+$lecturerId = $lecturerDao->insert($lecturer);
+$lecturer->setId($lecturerId);
+
+$lecturer->setSalary(500000);
+$lecturerDao->update($lecturer);
+
+echo "Lecturer after tests: <br>";
+print_r($lecturer->toArray());

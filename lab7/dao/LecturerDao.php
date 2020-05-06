@@ -3,6 +3,8 @@ require_once __DIR__ . "/Dao.php";
 
 interface LecturerDao extends Dao {
 
-    function findAllWithFaculty($facultyId);
+    function findOneWithFirstName($first_name);
+
+    function findAllWithFaculty($faculty_id);
 
 }
