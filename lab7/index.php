@@ -55,27 +55,27 @@ foreach ($lecturers as $lecturer) {
 
 echo "<hr>Tests<hr>";
 
-$lecturer = $lecturerDao->findOneWithFirstName("Володя");
-if ($lecturer !== FALSE) {
-    $lecturerDao->delete($lecturer->getId());
-    echo "Deleted record with id: {$lecturer->getId()}<br>";
+$lector1 = $lecturerDao->findOneWithFirstName("Володя");
+if ($lector1 !== FALSE) {
+    $lecturerDao->delete($lector1->getId());
+    echo "Deleted record with id: {$lector1->getId()}<br>";
 }
 
-$lecturer = new Lecturer();
-$lecturer->setFirstName("Володя");
-$lecturer->setLastName("Сухолиткий");
-$lecturer->setSurname("Іванович");
-$lecturer->setBirthday("2000-01-01");
-$lecturer->setSalary(5000);
-$lecturer->setPositionId(1);
-$lecturer->setFacultyId(1);
-$lecturer->setDegreeId(1);
+$lector2 = new Lecturer();
+$lector2->setFirstName("Володя")
+        ->setLastName("Сухолиткий")
+        ->setSurname("Іванович")
+        ->setBirthday("2000-01-01")
+        ->setSalary(5000)
+        ->setPositionId(1)
+        ->setFacultyId(1)
+        ->setDegreeId(1);
 
-$lecturerId = $lecturerDao->insert($lecturer);
-$lecturer->setId($lecturerId);
+$lecturerId = $lecturerDao->insert($lector2);
+$lector2->setId($lecturerId);
 
-$lecturer->setSalary(500000);
-$lecturerDao->update($lecturer);
+$lector2->setSalary(500000);
+$lecturerDao->update($lector2);
 
 echo "Lecturer after tests: <br>";
-print_r($lecturer->toArray());
+print_r($lector2->toArray());
