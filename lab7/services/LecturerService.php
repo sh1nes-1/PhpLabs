@@ -1,7 +1,7 @@
 <?php
-require_once "../models/Lecturer.php";
-require_once "../models/Faculty.php";
-require_once "../dao/LecturerDAO.php";
+require_once __DIR__ . "/../models/Lecturer.php";
+require_once __DIR__ . "/../models/Faculty.php";
+require_once __DIR__ . "/../dao/LecturerDAO.php";
 
 class LecturerService {
     public LecturerDao $lecturerDao;
