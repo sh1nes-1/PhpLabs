@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Base interface for models
+ */
 interface Model {
 
     function getId();

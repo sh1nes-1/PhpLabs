@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../Dao.php";
 
 abstract class PdoDao implements Dao {
-    private PDO $db;
+    protected PDO $db;
 
     abstract protected function getTableName();
     abstract protected function associativeArrayToObject($arr);

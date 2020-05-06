@@ -18,7 +18,7 @@ class LecturerDaoPdo extends PdoDao implements LecturerDao {
         return $obj->toArray();
     }
 
-    function findAllWithFaculty($facultyId) {
+    public function findAllWithFaculty($facultyId) {
         return NULL;
     }
 
