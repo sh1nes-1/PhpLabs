@@ -18,8 +18,17 @@ class LecturerDaoPdo extends PdoDao implements LecturerDao {
         return $obj->toArray();
     }
 
+    /**
+     * Gets all lecturers with given faculty from table
+     * 
+     * @return Array array of objects
+     */
     public function findAllWithFaculty($facultyId) {
-        return NULL;
+        $stmt = $this->db->prepare("SELECT * FROM `{$this->getTableName()}` WHERE `faculty_id` = ?");
+        $stmt->execute([$facultyId]);
+        return array_map(function($arr) {
+            return $this->associativeArrayToObject($arr);
+        }, $stmt->fetchAll());
     }
 
 }

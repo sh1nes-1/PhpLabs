@@ -15,6 +15,13 @@ foreach ($lecturers as $lecturer) {
     echo "<br><br>";
 }
 
+echo "<hr>Lecturers from faculty 1<hr>";
+$lecturers = $lecturerDao->findAllWithFaculty(1);
+foreach ($lecturers as $lecturer) {
+    echo print_r($lecturer->toArray());
+    echo "<br><br>";
+}
+
 echo "<hr>Faculties<hr>";
 
 $facultyDao = new FacultyDaoPdo($db);
