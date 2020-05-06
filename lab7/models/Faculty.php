@@ -59,4 +59,5 @@ class Faculty {
         $this->faculty_name = $faculty_name;
         return $this;
     }
+    
 }
