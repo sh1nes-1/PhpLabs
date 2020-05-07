@@ -70,19 +70,19 @@
                 <input id="img_height" type="range" min="100" max="1080" value="900" class="form-control"/>    
 
                 <label for="x_visible_divisions">Кількість поділок по X</label>
-                <input id="x_visible_divisions" type="range" min="2" max="100" value="40" class="form-control"/>      
+                <input id="x_visible_divisions" type="range" min="2" max="50" value="40" class="form-control"/>      
 
                 <label for="y_visible_divisions">Кількість поділок по Y</label>
-                <input id="y_visible_divisions" type="range" min="2" max="100" value="20" class="form-control"/> 
+                <input id="y_visible_divisions" type="range" min="2" max="50" value="20" class="form-control"/> 
 
                 <label for="division_size">Розмір поділок</label>
                 <input id="division_size" type="range" min="1" max="100" value="10" class="form-control"/>                                                      
 
                 <label for="division_weight_x">Ціна поділки X</label>
-                <input id="division_weight_x" type="range" min="5" max="1000" value="100" class="form-control"/>     
+                <input id="division_weight_x" type="range" min="5" max="500" value="100" class="form-control"/>     
 
                 <label for="division_weight_y">Ціна поділки Y</label>
-                <input id="division_weight_y" type="range" min="5" max="1000" value="50" class="form-control"/>                                                                                   
+                <input id="division_weight_y" type="range" min="5" max="500" value="50" class="form-control"/>                                                                                   
 
                 <input type="button" id="submit" class="btn btn-primary" value="Показати"/>   
             </form>                 
