@@ -1,5 +1,5 @@
 <?php
-const FONT_PATH = __DIR__ . "/ArialUnicodeMS.ttf";
+const FONT_PATH = __DIR__ . "/Arial.ttf";
 
 // user defined constants
 $img_padding = 20;
