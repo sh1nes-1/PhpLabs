@@ -1,0 +1,48 @@
+.navbar .container {
+    padding: 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.top-menu-link {
+    font-size: 14px !important;
+}
+
+.content {
+    padding: 10px;    
+}
+
+.bio {
+    border: 1px solid #DFD7CA;
+    border-radius: 0.25rem;
+}
+
+.portrait-small {
+    width: 150px;
+    height: 200px;
+    margin: 0;
+}
+
+.portrait-big {
+  width: 300px;
+  height: 400px;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.bio-block-text {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.bio-text-header {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+.gallery-row {
+  margin: 20px 0;
+}
