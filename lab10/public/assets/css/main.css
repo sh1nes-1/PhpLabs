@@ -2,6 +2,14 @@
     padding: 0;
 }
 
+.footer {
+  margin-top: 1rem;
+}
+
+.footer > .card-body {
+  padding: 5px;
+}
+
 .navbar-brand {
     font-size: 24px;
 }
@@ -45,4 +53,33 @@
 
 .gallery-row {
   margin: 20px 0;
+}
+
+
+/* Login page */
+.login_form {
+  margin: 25px;
+}
+
+.login-sumbit {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.login_error_block {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login_error_text {
+  color: red;  
+}
+
+/* Admin index */
+.admin-greeting {
+  padding: 10px;
+}
+
+.logout_link {
+  margin-left: 10px;
 }

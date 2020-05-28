@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/../utils.php";
+require_once __DIR__."/../../src/services/Utils.php";
 ?>
 <!DOCTYPE html>
 <html lang="ua">
@@ -7,13 +7,13 @@ require_once __DIR__."/../utils.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css?hash=<?= get_file_hash("assets/css/bootstrap.css"); ?>">
-    <link rel="stylesheet" href="assets/css/main.css?hash=<?= get_file_hash("assets/css/main.css"); ?>">
-    <link rel="stylesheet" href="assets/css/ekko-lightbox.css?hash=<?= get_file_hash("assets/css/ekko-lightbox.css"); ?>">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css?hash=<?= Utils::get_file_hash(__DIR__."/../assets/css/bootstrap.css"); ?>">
+    <link rel="stylesheet" href="/assets/css/main.css?hash=<?= Utils::get_file_hash(__DIR__."/../assets/css/main.css"); ?>">
+    <link rel="stylesheet" href="/assets/css/ekko-lightbox.css?hash=<?= Utils::get_file_hash(__DIR__."/../assets/css/ekko-lightbox.css"); ?>">
 
-    <script type="text/javascript" src="assets/js/jquery-3.4.1.slim.min.js?hash=<?= get_file_hash("assets/js/jquery-3.4.1.slim.min.js"); ?>"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.js?hash=<?= get_file_hash("assets/js/bootstrap.js"); ?>"></script>    
-    <script type="text/javascript" src="assets/js/ekko-lightbox.js?hash=<?= get_file_hash("assets/js/ekko-lightbox.js"); ?>"></script>        
+    <script type="text/javascript" src="/assets/js/jquery-3.4.1.slim.min.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/jquery-3.4.1.slim.min.js"); ?>"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/bootstrap.js"); ?>"></script>    
+    <script type="text/javascript" src="/assets/js/ekko-lightbox.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/ekko-lightbox.js"); ?>"></script>        
 
     <title>ВОЛОДИМИР МИКОЛАЙОВИЧ СОСЮРА</title>
 </head>
@@ -44,14 +44,18 @@ require_once __DIR__."/../utils.php";
     <div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
         <ul class="navbar-nav">
         <li class="nav-item <?= empty($is_nav_page_main) ? '' : 'active'; ?>">
-            <a class="nav-link top-menu-link" href="./">Головна</a>
+            <a class="nav-link top-menu-link" href="/">Головна</a>
         </li>
         <li class="nav-item <?= empty($is_nav_page_bio) ? '' : 'active'; ?>">
-            <a class="nav-link top-menu-link" href="./biography.php">Біографія</a>
+            <a class="nav-link top-menu-link" href="/biography.php">Біографія</a>
         </li>
         <li class="nav-item <?= empty($is_nav_page_gallery) ? '' : 'active'; ?>">
-            <a class="nav-link top-menu-link" href="./gallery.php">Галерея</a>
+            <a class="nav-link top-menu-link" href="/gallery.php">Галерея</a>
         </li>
+        <!-- TODO: show only if user is admin -->
+        <li class="nav-item <?= empty($is_nav_page_admin) ? '' : 'active'; ?>">
+            <a class="nav-link top-menu-link" href="/admin/">Панель адміністратора</a>
+        </li>        
         </ul>
     </div>
     </nav>

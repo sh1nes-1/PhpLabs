@@ -62,7 +62,6 @@ require_once __DIR__."/templates/head.php";
             </div>                   
           </div>
         </div>
-
   </div>
 </div>
 
