@@ -1,4 +1,8 @@
 <?php 
+require_once __DIR__."/../config/db.php";
+require_once __DIR__."/../src/dao/PoemDaoPdo.php";
+require_once __DIR__."/../src/dao/MainPagesContentDaoPdo.php";
+
 $is_nav_page_main = true;
 
 $breadcrumb_path = [
@@ -6,6 +10,9 @@ $breadcrumb_path = [
 ];
 
 require_once __DIR__."/templates/head.php";
+
+$mainPagesPdo = new MainPagesContentDaoPdo($db); 
+$mainPage = $mainPagesPdo->getById(1);
 ?>
 
 <div class="card bg-light mb-3 bio">    
@@ -13,11 +20,11 @@ require_once __DIR__."/templates/head.php";
   <div class="card-body">
     <div class="row">
       <div class="col d-flex">
-        <img src="assets/img/main-portrait.jpg" class="portrait-small">
+        <img src="upload/<?= $mainPage->getPhoto(); ?>" class="portrait-small">
           
           <div class="bio-block-text">        
             <p class="text-justify">
-            <b>Володимир Миколайович Сосюра (1898 - 1965)</b> — український письменник, поет-лірик, автор понад 40 збірок поезій, широких епічних віршованих полотен, роману «Третя Рота», бунчужний 3-го Гайдамацького полку Армії УНР. Належав до низки літературних організацій того періоду — «Плуг», «Гарт», «ВАПЛІТЕ» та ін.
+            <?= $mainPage->getText(); ?>
             </p>
           </div>    
       </div>        
@@ -29,10 +36,12 @@ require_once __DIR__."/templates/head.php";
   <div class="card-header"><h1 class="bio-text-header text-center">Найвідоміші твори</h1>  </div>
   <div class="card-body">
     <ul>
-      <li>Володимир Сосюра - Мазепа (Поема)</li>
-      <li>Володимир Сосюра - Третя рота</li>
-      <li>Володимир Сосюра - Любіть Україну</li>
-      <li>Володимир Сосюра - Васильки</li>      
+      <?php 
+      $poemDao = new PoemDaoPdo($db);
+      foreach ($poemDao->getAll() as $poem):
+      ?>      
+      <li><a href="/poem.php?id=<?= $poem->getId(); ?>">Володимир Сосюра - <?= $poem->getName(); ?></a></li>
+      <?php endforeach; ?>   
     </ul>
   </div>
 </div>

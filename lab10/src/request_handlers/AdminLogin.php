@@ -5,7 +5,7 @@ require_once __DIR__."/../exceptions/AuthException.php";
 class AdminLoginHandler {
     private static $form_error;
 
-    public static function TryHandleForm() {    
+    public static function tryHandleForm() {    
         AdminLoginHandler::$form_error = "";
         
         if (isset($_POST['username'], $_POST['password'])) {        

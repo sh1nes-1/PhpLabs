@@ -26,7 +26,7 @@ require_once __DIR__."/../../src/services/Utils.php";
       <div class="col">
         <div class="row">
         <div class="col">
-            <a class="navbar-brand" href="#">ВОЛОДИМИР МИКОЛАЙОВИЧ СОСЮРА</a>
+            <a class="navbar-brand" href="/">ВОЛОДИМИР МИКОЛАЙОВИЧ СОСЮРА</a>
         </div>   
         </div>
         <div class="row">

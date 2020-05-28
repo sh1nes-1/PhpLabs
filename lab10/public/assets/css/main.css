@@ -83,3 +83,18 @@
 .logout_link {
   margin-left: 10px;
 }
+
+/* Admin edit */
+.edit_text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 300px;
+}
+
+.save-btn {
+  margin-top: 10px;
+  width: 200px;
+  height: 40px;
+}

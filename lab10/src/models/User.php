@@ -20,16 +20,16 @@ class User {
         return $obj;
     }
 
-    public function isAdmin() {
-        return $this->getRoleId() == 0;
-    }
-
     /**
      * 
      * @return array associative array with fields of this object
      */
     public function toArray() {
         return get_object_vars($this);
+    }
+
+    public function isAdmin() {
+        return $this->getRoleId() == 1;
     }
 
     /**
