@@ -1,18 +1,17 @@
 <?php
 
-class Poem {
+class Role {
     private $id;
     private $name;
-    private $content;
-    
+
     /**
      * Converts associative array to object
      * 
      * @param Array $arr array with fields
-     * @return object instance of Poem
+     * @return object instance of Role
      */
     public static function fromArray($arr) {
-        $obj = new Poem();
+        $obj = new Role();
         foreach ($arr as $key => $value) {
             if (is_numeric($key)) continue;
             $obj->{$key} = $value;
@@ -59,22 +58,6 @@ class Poem {
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * Get the value of content
-     */ 
-    public function getContent() {
-        return $this->content;
-    }
-
-    /**
-     * Set the value of content
-     * @return  self
-     */ 
-    public function setContent($content) {
-        $this->content = $content;
         return $this;
     }
 }

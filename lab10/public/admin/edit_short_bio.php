@@ -1,14 +1,19 @@
 <?php
-require_once __DIR__."/../../src/request_handlers/EditMainPage.php";
-require_once __DIR__."/../../config/db.php";
+require_once __DIR__."/../../src/request_handlers/EditShortBioHandler.php";
+require_once __DIR__."/../../src/services/Auth.php";
 
-EditMainPageHandler::tryHandleForm($db);
+if (!Auth::instance()->isLoggedAsEditor()) {
+    header("Location: ./login.php");
+    die();
+}
 
-$mainPagesPdo = new MainPagesContentDaoPdo($db);  
+EditShortBioHandler::tryHandleForm(Auth::instance()->getDb());
+
+$mainPagesPdo = new MainPagesContentDaoPdo(Auth::instance()->getDb());  
 $mainPages = $mainPagesPdo->getById(1);
 
-$shortBio = EditMainPageHandler::getShortBio();
-if ($shortBio == "") {
+$shortBio = EditShortBioHandler::getShortBio();
+if (empty($shortBio)) {
     $shortBio = $mainPages->getText();
 }
 
@@ -37,15 +42,15 @@ require_once __DIR__."/../templates/head.php";
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <textarea name="short_bio" class="edit_text"><?= $shortBio; ?></textarea>
+                    <textarea name="short_bio" class="edit_text" style="min-height: 150px;"><?= $shortBio; ?></textarea>
                 </div>
             </div>
             <div class="row justify-content-center">                
-                <input type="submit" class="save-btn" value="Зберегти">
+                <input type="submit" class="save-btn btn btn-primary" value="Зберегти">
             </div>
         </form>
 
-        <span><?= EditMainPageHandler::getFormError(); ?></span>
+        <span><?= EditShortBioHandler::getFormError(); ?></span>
     </div>
 </div>
 

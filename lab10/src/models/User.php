@@ -15,6 +15,7 @@ class User {
     public static function fromArray($arr) {
         $obj = new User();
         foreach ($arr as $key => $value) {
+            if (is_numeric($key)) continue;
             $obj->{$key} = $value;
         }
         return $obj;
@@ -28,8 +29,12 @@ class User {
         return get_object_vars($this);
     }
 
+    public function isEditor() {
+        return $this->getRoleId() >= 2;
+    }
+
     public function isAdmin() {
-        return $this->getRoleId() == 1;
+        return $this->getRoleId() >= 3;
     }
 
     /**

@@ -19,14 +19,14 @@ $mainPage = $mainPagesPdo->getById(1);
   <div class="card-header"><h1 class="bio-text-header text-center">Коротка біографія</h1>  </div>
   <div class="card-body">
     <div class="row">
-      <div class="col d-flex">
-        <img src="upload/<?= $mainPage->getPhoto(); ?>" class="portrait-small">
+      <div class="col">
+        <img src="upload/<?= $mainPage->getPhoto(); ?>" class="portrait-small float-left">
           
-          <div class="bio-block-text">        
-            <p class="text-justify">
+        <div class="bio-block-text">        
+          <p class="text-justify">
             <?= $mainPage->getText(); ?>
-            </p>
-          </div>    
+          </p>
+        </div>    
       </div>        
     </div>
   </div>

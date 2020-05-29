@@ -31,6 +31,7 @@
     width: 150px;
     height: 200px;
     margin: 0;
+    margin-right: 10px;
 }
 
 .portrait-big {
@@ -61,17 +62,17 @@
   margin: 25px;
 }
 
-.login-sumbit {
+.form-sumbit {
   margin-top: 5px;
   width: 100%;
 }
 
-.login_error_block {
+.form_error_block {
   margin-top: 20px;
   text-align: center;
 }
 
-.login_error_text {
+.form_error_text {
   color: red;  
 }
 
@@ -97,4 +98,9 @@
   margin-top: 10px;
   width: 200px;
   height: 40px;
+}
+
+/* edit users */
+.users td, .users th {
+  vertical-align: middle;
 }

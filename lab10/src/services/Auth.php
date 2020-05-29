@@ -64,8 +64,16 @@ class Auth {
         $this->user = null;
     }
 
+    public function getDb() {
+        return $this->db;
+    }
+
     public function isLoggedIn() {
         return $this->user != null;
+    }
+
+    public function isLoggedAsEditor() {
+        return $this->isLoggedIn() && $this->user->isEditor();
     }
 
     public function isLoggedAsAdmin() {

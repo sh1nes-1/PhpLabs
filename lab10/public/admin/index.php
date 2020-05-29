@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__."/../../src/services/Auth.php";
 
-if (!Auth::instance()->isLoggedAsAdmin()) {
+if (!Auth::instance()->isLoggedAsEditor()) {
     header("Location: ./login.php");
     die();
 }
@@ -28,9 +28,13 @@ require_once __DIR__."/../templates/head.php";
       <h1>Виберіть дію</h1>
 
       <div class="list-group">
-        <a href="./edit_main_page.php" class="list-group-item list-group-item-action">Редагувати головну сторінку</a>
+        <a href="./edit_short_bio.php" class="list-group-item list-group-item-action">Редагувати коротку біографію</a>
         <a href="#" class="list-group-item list-group-item-action">Редагувати біографію</a>
         <a href="#" class="list-group-item list-group-item-action">Редагувати поеми</a>
+
+        <?php if ($user->isAdmin()): ?>
+        <a href="./edit_users.php" class="list-group-item list-group-item-action">Редагувати користувачів</a>
+        <?php endif; ?>
       </div>
     </div>
   </div>   

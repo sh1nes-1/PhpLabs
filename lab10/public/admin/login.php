@@ -2,9 +2,14 @@
 require_once __DIR__."/../../src/services/Utils.php";
 require_once __DIR__."/../../src/request_handlers/AdminLogin.php";
 
+if (Auth::instance()->isLoggedIn() && !Auth::instance()->isLoggedAsEditor()) {
+  header('Location: /');
+  die();
+}
+
 if (AdminLoginHandler::tryHandleForm() || Auth::instance()->isLoggedIn()) {
-    header('Location: /admin/');
-    die();
+  header('Location: /admin/');
+  die();
 }
 
 $breadcrumb_path = [
@@ -14,7 +19,6 @@ $breadcrumb_path = [
 
 require_once __DIR__."/../templates/head.php";
 ?>
-
 
 <div class="row justify-content-center">
     <div class="login_form col-md-4">
@@ -38,7 +42,7 @@ require_once __DIR__."/../templates/head.php";
           </form>
           <div class="login_error_block">
               <span class="login_error_text">
-                  <?= AdminLoginHandler::getFormError(); ?>
+                <?= AdminLoginHandler::getFormError(); ?>
               </span>
           </div>
         </div>
