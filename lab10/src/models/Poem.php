@@ -47,8 +47,7 @@ class Poem {
     /**
      * Get the value of name
      */ 
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -56,8 +55,7 @@ class Poem {
      * Set the value of name
      * @return  self
      */ 
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
         return $this;
     }

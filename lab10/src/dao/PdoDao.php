@@ -79,7 +79,8 @@ abstract class PdoDao {
             if ($key == 'id') 
                 continue;
 
-            $formatted_set_string .= "`$key`='$value', ";
+            $val = str_replace("'", "''", $value);
+            $formatted_set_string .= "`$key`='$val', ";
         }
         $formatted_set_string = rtrim($formatted_set_string, ", ");
 

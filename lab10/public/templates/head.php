@@ -10,10 +10,11 @@ require_once __DIR__."/../../src/services/Utils.php";
     <link rel="stylesheet" href="/assets/css/bootstrap.css?hash=<?= Utils::get_file_hash(__DIR__."/../assets/css/bootstrap.css"); ?>">
     <link rel="stylesheet" href="/assets/css/main.css?hash=<?= Utils::get_file_hash(__DIR__."/../assets/css/main.css"); ?>">
     <link rel="stylesheet" href="/assets/css/ekko-lightbox.css?hash=<?= Utils::get_file_hash(__DIR__."/../assets/css/ekko-lightbox.css"); ?>">
-
+    
     <script type="text/javascript" src="/assets/js/jquery-3.4.1.slim.min.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/jquery-3.4.1.slim.min.js"); ?>"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/bootstrap.js"); ?>"></script>    
     <script type="text/javascript" src="/assets/js/ekko-lightbox.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/ekko-lightbox.js"); ?>"></script>        
+    <script type="text/javascript" src="/assets/js/main.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/main.js"); ?>"></script>
 
     <title>ВОЛОДИМИР МИКОЛАЙОВИЧ СОСЮРА</title>
 </head>

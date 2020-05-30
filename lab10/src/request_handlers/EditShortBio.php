@@ -24,7 +24,7 @@ class EditShortBioHandler {
                 if ($check !== false) {
                     if (!move_uploaded_file($_FILES["portrait"]["tmp_name"], $target_file)) {
                         EditShortBioHandler::$form_error = "Не вдалося завантажити зображення";
-                        return;
+                        return false;
                     }   
                 }
             } else {
@@ -38,7 +38,10 @@ class EditShortBioHandler {
                 ->setText(EditShortBioHandler::$short_bio);
 
             $mainPagesPdo->update($mainPagesContent);
+            return true;
         }
+
+        return false;
     }
 
     public static function getFormError() {

@@ -13,9 +13,9 @@ if (EditUserHandler::tryHandleForm()) {
   die();
 }
 
-$userDao = new UserDaoPdo(Auth::instance()->getDb());
 $user = EditUserHandler::getUser();
 
+$userDao = new UserDaoPdo(Auth::instance()->getDb());
 $roleDao = new RoleDaoPdo(Auth::instance()->getDb());
 
 $breadcrumb_path = [
