@@ -8,7 +8,7 @@ if (!Auth::instance()->isLoggedAsAdmin()) {
 
 $breadcrumb_path = [
     "Панель адміністратора" => "./",
-    "Редагувати біографію" => "#",
+    "Редагування біографії" => "#",
 ];
 
 require_once __DIR__."/../templates/head.php";

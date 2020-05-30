@@ -1,5 +1,10 @@
 <?php
 require_once __DIR__."/../../src/services/Utils.php";
+require_once __DIR__."/../../src/services/Auth.php";
+require_once __DIR__."/../../src/dao/SiteHeadDaoPdo.php";
+
+$siteHeadPdo = new SiteHeadDaoPdo(Auth::instance()->getDb());
+$siteHead = $siteHeadPdo->getById(1);
 ?>
 <!DOCTYPE html>
 <html lang="ua">
@@ -16,7 +21,7 @@ require_once __DIR__."/../../src/services/Utils.php";
     <script type="text/javascript" src="/assets/js/ekko-lightbox.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/ekko-lightbox.js"); ?>"></script>        
     <script type="text/javascript" src="/assets/js/main.js?hash=<?= Utils::get_file_hash(__DIR__."/../assets/js/main.js"); ?>"></script>
 
-    <title>ВОЛОДИМИР МИКОЛАЙОВИЧ СОСЮРА</title>
+    <title><?= $siteHead->getAuthorFullName(); ?></title>
 </head>
 <body>
 <div class="container">    
@@ -27,12 +32,12 @@ require_once __DIR__."/../../src/services/Utils.php";
       <div class="col">
         <div class="row">
         <div class="col">
-            <a class="navbar-brand" href="/">ВОЛОДИМИР МИКОЛАЙОВИЧ СОСЮРА</a>
+            <a class="navbar-brand" href="/"><?= $siteHead->getAuthorFullName(); ?></a>
         </div>   
         </div>
         <div class="row">
         <div class="col">
-            <h5 class="text-secondary">видатний український письменник</h5>
+            <h5 class="text-secondary"><?= $siteHead->getDescription(); ?></h5>
         </div>   
         </div>
       </div>

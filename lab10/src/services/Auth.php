@@ -11,9 +11,7 @@ class Auth {
     private UserDaoPdo $userDao;
     private ?User $user;    
 
-    private function __construct() {
-        require_once __DIR__."/../../config/db.php";
-
+    private function __construct(PDO $db) {
         $this->db = $db;
         $this->userDao = new UserDaoPdo($db);
         $this->user = null;
@@ -39,7 +37,8 @@ class Auth {
 
     public static function instance() {
         if (Auth::$singleton == null) {
-            Auth::$singleton = new Auth();
+            include __DIR__."/../../config/db.php";
+            Auth::$singleton = new Auth($db);
         }
 
         return Auth::$singleton;
