@@ -53,7 +53,11 @@ require_once __DIR__."/../templates/head.php";
             </div>
         </form>
 
-        <span><?= EditShortBioHandler::getFormError(); ?></span>
+        <div class="row text-center" style="margin-top: 20px; color: red;">
+            <div class="col-md-12">
+                <?= EditShortBioHandler::getFormError(); ?>
+            </div>
+        </div>   
     </div>
 </div>
 

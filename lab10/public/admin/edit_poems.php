@@ -19,7 +19,7 @@ require_once __DIR__."/../templates/head.php";
 
 <div class="card bg-light mb-3">    
     <div class="card-body justify-content-end">
-      <h1>Виберіть поему</h1>
+      <h1>Виберіть поему для редагування або <a href="./add_poem.php">додайте нову</a></h1>
 
       <div class="list-group">
         <?php foreach ($poemDao->getAll() as $poem): ?>
