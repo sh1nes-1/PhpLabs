@@ -30,7 +30,7 @@ require_once __DIR__."/../templates/head.php";
           <form method="POST">
             <div class="form-group">
               <label for="username">Ім'я користувача</label>
-              <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Ім'я користувача" value="<?= Utils::get_post_value("username"); ?>">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Ім'я користувача" value="<?= Utils::get_post_value("username"); ?>">
             </div>
 
             <div class="form-group">
@@ -38,13 +38,15 @@ require_once __DIR__."/../templates/head.php";
               <input type="password" id="password" name="password" class="form-control" placeholder="Пароль">
             </div>
 
-            <button type="submit" class="btn btn-primary login-sumbit">Увійти</button>
+            <button type="submit" class="btn btn-primary form-sumbit">Увійти</button>
           </form>
-          <div class="login_error_block">
-              <span class="login_error_text">
+          <?php if (strlen(AdminLoginHandler::getFormError()) > 0): ?>
+          <div class="form_error_block">
+              <span class="form_error_text">
                 <?= AdminLoginHandler::getFormError(); ?>
               </span>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>

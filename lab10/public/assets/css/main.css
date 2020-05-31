@@ -44,6 +44,7 @@
 .bio-block-text {
   margin: 0;
   margin-left: 10px;
+  text-align: justify;
 }
 
 .bio-text-header {

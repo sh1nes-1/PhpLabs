@@ -18,6 +18,7 @@ $breadcrumb_path = [
 require_once __DIR__."/../templates/head.php";
 ?>
 
+<h1>Виберіть користувача для редагування або <a href="./add_user.php">додайте нового</a></h1>
 <table class="table table-hover users">
   <thead>
     <tr>
@@ -35,6 +36,7 @@ require_once __DIR__."/../templates/head.php";
       <td><?= $roleDao->getById($user->getRoleId())->getName(); ?></td>
       <td>
         <a href="./edit_user.php?id=<?= $user->getId(); ?>"><button type="button" class="btn btn-info" <?= ($user->getId() == Auth::instance()->getUser()->getId()) ? 'disabled' : ''; ?>>Редагувати</button></a>
+        <a href="./delete_user.php?id=<?= $user->getId(); ?>" onclick="return confirm('Ви дійсно хочете видалити цього користувача?');"><button type="button" class="btn btn-danger" <?= ($user->getId() == Auth::instance()->getUser()->getId()) ? 'disabled' : ''; ?>>Видалити</button></a>
       </td>
     </tr>
     <?php endforeach; ?>

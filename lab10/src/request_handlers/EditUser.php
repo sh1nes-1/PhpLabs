@@ -44,9 +44,15 @@ class EditUserHandler {
 
             $user
                 ->setUsername($username)
-                ->setRoleId($role_id);
+                ->setRoleId($role_id);            
 
-            $userDao->update($user);
+            try {
+                $userDao->update($user);
+            } catch (Exception $e) {
+                EditUserHandler::$form_error = "Не вдалося редагувати користувача з такими значеннями!";
+                return false;
+            }
+
             return true;
         }
 

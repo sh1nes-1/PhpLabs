@@ -31,6 +31,7 @@ require_once __DIR__."/../templates/head.php";
         <a href="./edit_short_bio.php" class="list-group-item list-group-item-action">Редагувати коротку біографію</a>
         <a href="./edit_bio.php" class="list-group-item list-group-item-action">Редагувати біографію</a>
         <a href="./edit_poems.php" class="list-group-item list-group-item-action">Редагувати поеми</a>
+        <a href="./edit_gallery.php" class="list-group-item list-group-item-action">Редагувати галерею</a>
 
         <?php if ($user->isAdmin()): ?>
         <a href="./edit_site_head.php" class="list-group-item list-group-item-action">Редагувати шапку сайту</a>

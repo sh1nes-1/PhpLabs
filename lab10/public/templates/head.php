@@ -58,10 +58,12 @@ $siteHead = $siteHeadPdo->getById(1);
         <li class="nav-item <?= empty($is_nav_page_gallery) ? '' : 'active'; ?>">
             <a class="nav-link top-menu-link" href="/gallery.php">Галерея</a>
         </li>
-        <!-- TODO: show only if user is admin -->
+        
+        <?php if (Auth::instance()->isLoggedAsEditor()): ?>
         <li class="nav-item <?= empty($is_nav_page_admin) ? '' : 'active'; ?>">
             <a class="nav-link top-menu-link" href="/admin/">Панель адміністратора</a>
         </li>        
+        <?php endif; ?>
         </ul>
     </div>
     </nav>

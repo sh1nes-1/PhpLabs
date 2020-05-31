@@ -2,7 +2,7 @@
 require_once __DIR__."/../../src/services/Auth.php";
 require_once __DIR__."/../../src/dao/PoemDaoPdo.php";
 
-if (!Auth::instance()->isLoggedAsAdmin()) {
+if (!Auth::instance()->isLoggedAsEditor()) {
     header("Location: ./login.php");
     die();
 }
