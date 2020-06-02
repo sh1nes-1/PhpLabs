@@ -15,7 +15,12 @@ class EditBiographyHandler {
             $target_dir = __DIR__."/../../public/upload/";
             $filename = basename($_FILES["portrait"]["name"]);
             $target_file = $target_dir . $filename;
-            //$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            if(strlen($filename) > 0 && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                EditBiographyHandler::$form_error = "Допустимі тільки JPG, JPEG, PNG файли!";
+                return false;
+            }
             
             $mainPagesPdo = new MainPagesContentDaoPdo($db);    
 

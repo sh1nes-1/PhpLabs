@@ -30,7 +30,7 @@ require_once __DIR__."/../templates/head.php";
 </div>
 <form method="POST" enctype="multipart/form-data">
     <div class="row justify-content-center" style="margin-top: 15px;">        
-        <input id="select_image" name="photo" type="file" onchange="on_image_changed();">    
+        <input id="select_image" name="photo" type="file" onchange="on_image_changed();" required>    
     </div>        
     <div class="row justify-content-center" style="margin-top: 15px;">    
         <input name="add" type="submit" class="save-btn btn btn-primary" value="Додати">

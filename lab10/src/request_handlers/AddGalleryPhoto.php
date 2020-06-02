@@ -18,7 +18,12 @@ class AddGalleryPhotoHandler {
             } 
 
             $target_file = $target_dir . $filename;
-            //$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                AddGalleryPhotoHandler::$form_error = "Допустимі тільки JPG, JPEG, PNG файли!";
+                return false;
+            }
             
             $galleryPhotoPdo = new GalleryPhotoDaoPdo(Auth::instance()->getDb());    
 
